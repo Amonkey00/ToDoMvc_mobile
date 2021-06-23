@@ -137,8 +137,7 @@ select{
 }
 .todo-count{
     position: relative;
-    font-family:fantasy;
-    font-size: 20px;
+    font-size: 15px;
     float:left;
     text-align: left;
     top:20%;
