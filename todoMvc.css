@@ -138,7 +138,7 @@ select{
 .todo-count{
     position: relative;
     font-family:fantasy;
-    font-size: 30px;
+    font-size: 20px;
     float:left;
     text-align: left;
     top:20%;
@@ -176,7 +176,7 @@ html .clear-completed:active,
 html .complete-all:active{
     position:absolute;
     width:100px;
-    line-height: 30px;
+    line-height: auto;
     height: 30px;
     right:0;
     bottom: 0;
@@ -185,7 +185,7 @@ html .complete-all:active{
     text-decoration: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 5px;
+    font-size: 10px;
     background-color: rgba(255,0,0,0.8);
     color:white;
 }
@@ -193,7 +193,7 @@ html .complete-all:active{
 .complete-all,
 html .complete-all:active{
     background-color: rgba(49, 163, 49, 0.8);
-    right: 26%;
+    right: 110px;
 }
 
 
