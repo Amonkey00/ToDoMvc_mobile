@@ -97,10 +97,10 @@ function update(){
     
     var completed = items.length - leftNum;
     var count = $('.todo-count');
-    count.innerHTML = leftNum + (leftNum >1 ? ' itmes' : ' item')+' left';
+    count.innerHTML = (leftNum||'No ') + (leftNum >1 ? ' itmes' : ' item');
 
     if(filter!=null && filter.innerHTML=='Completed')
-        count.innerHTML = completed + (completed>1?' items':' item')+' Done';
+        count.innerHTML = (completed||'No ') + (completed>1?' items':' item');
 
     $('.complete-all').style.display= items.length==0?'none':'inline-block';
     $('.clear-completed').style.display=items.length==0?'none':'inline-block';
