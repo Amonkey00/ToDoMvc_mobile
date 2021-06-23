@@ -97,10 +97,10 @@ function update(){
     
     var completed = items.length - leftNum;
     var count = $('.todo-count');
-    count.innerHTML = (leftNum||'No ') + (leftNum >1 ? ' itmes' : ' item');
+    count.innerHTML = (leftNum||'No ') + (leftNum >1 ? ' itmes' : ' item')+' left';
 
     if(filter!=null && filter.innerHTML=='Completed')
-        count.innerHTML = (completed||'No ') + (completed>1?' items':' item');
+        count.innerHTML = (completed||'No ') + (completed>1?' items':' item')+' done';
 
     $('.complete-all').style.display= items.length==0?'none':'inline-block';
     $('.clear-completed').style.display=items.length==0?'none':'inline-block';
@@ -184,13 +184,20 @@ function insertByDate(add_item){
     var now_time = getTimeStamp(add_item.querySelector('.todo-time').innerHTML);
     var items = list.childNodes;
 
+    if(items.length==0){
+        list.insertBefore(add_item,list.firstChild);
+            return;
+    }
+
     for (var i =0;i<items.length;++i){
         var i_datetime = getTimeStamp(items[i].querySelector('.todo-time').innerHTML);
-        if (now_time>i_datetime)continue;
-        list.insertBefore(add_item,items[i]);
-        return;
+        console.log(i_datetime);
+        if (now_time<=i_datetime){
+            list.insertBefore(add_item,items[i]);
+            return;
+        }
     }
-    list.insertBefore(add_item,list.firstChild);
+    list.appendChild(add_item);
 }
 
 function getTimeStamp(date){
